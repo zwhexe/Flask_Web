@@ -10,7 +10,7 @@ def save_picture(form_picture):
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(current_app.root_path, 'static/profile_pics', picture_fn)
-    
+
     output_size = (125, 125)
     i = Image.open(form_picture)
     i.thumbnail(picture_path)
@@ -21,7 +21,7 @@ def save_picture(form_picture):
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request', 
+    msg = Message('Password Reset Request',
                 sender='noreply@demo.com',
                 recipients=[user.email])
     msg.body = f'''TO Reset Your Password, Visit the Following Link:

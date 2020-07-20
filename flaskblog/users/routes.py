@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, url_for, flash, redirect, request
 from flask_login import login_user, current_user, logout_user, login_required
 from flaskblog import db
 from flaskblog.models import User, Post
-from flaskblog.users.forms import (RegistrationForm, LoginForm, UpdateAccountForm, 
+from flaskblog.users.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
                                     RequestResetForm, ResetPasswordForm)
 from flaskblog.users.utils import save_picture, send_reset_email
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -63,7 +63,7 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
     image_file = url_for('static', filename='profile_pics/'+current_user.image_file)
-    return render_template('account.html', title='Account', 
+    return render_template('account.html', title='Account',
                             image_file=image_file, form=form)
 
 
